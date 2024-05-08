@@ -80,7 +80,7 @@ def get_study_record(openid: str):
 def screen_shot(save_png_path: str, file_path: str = "./web/out.html"):
     option = webdriver.ChromeOptions()
     # option.add_argument("--headless")
-    driver = webdriver.Chrome("D:\\Tools\\chromedriver.exe", options=option)
+    driver = webdriver.Chrome(options=option)
     driver.set_window_size(915, 1294)
     html_path = Path(file_path).absolute()
     driver.get(f"file://{html_path}")
