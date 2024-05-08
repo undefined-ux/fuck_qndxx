@@ -93,6 +93,7 @@ def screen_shot(save_png_path: str, file_path: str = "./web/out.html"):
 if __name__ == "__main__":
     logger = __initialize_logger()
     for openid in OPENID_LIST:
+        logger.info(f"[{openid}] start.")
         version = get_least_version(openid)
         logger.info(f"[{openid}] least_version = {version}")
         if (errmsg := fuck_it(openid, version)) is not None:
