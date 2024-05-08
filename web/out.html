@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>青年大学习</title>
+    <meta http-equiv="cache-control" content="max-age=60">
+    <meta http-equiv="keywords" content="">
+    <meta http-equiv="description" content="">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script type="text/javaScript" src="./vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./pub.css">
+    <link rel="stylesheet" type="text/css" href="./allPage.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="xxjldetail">
+            <div class="xxjl_xjtj xxjl_xjtj_s" style="display: none">数据统计
+            </div>
+            <div class="wdxxjl">我的学习记录</div>
+            <div class="selectyear">
+                <span>年度:</span>
+                <select v-model="yearselected" id="chooseyear">
+                    <option v-for="option in options" v-bind:value="option.value">
+                        {{ option.text }}
+                    </option>
+                </select>
+            </div>
+            <div class="jlList">
+                <div>
+                    <span>期数</span> <span>学习团组织</span> <span>登录信息</span>
+                </div>
+
+                <div class="jlItem" v-for="(item,index) in record.vds">
+                    <span>{{item.versionname}}</span> <span style="text-decoration: underline;">{{item.tzzmc}}</span>
+                    <span>{{item.xm}}
+                        {{item.sjhm}}<br>{{item.dtsj}}
+                    </span>
+                </div>
+            </div>
+            <img @click="nowPage='my'" class="goback" src="./go_back.png">
+        </div>
+    </div>
+
+</body><script>
+    var app = new Vue({
+        el: "#main",
+        data: {
+            yearselected: 2024,
+            options: [{'text': 2018, 'value': 2018}, {'text': 2019, 'value': 2019}, {'text': 2020, 'value': 2020}, {'text': 2021, 'value': 2021}, {'text': 2022, 'value': 2022}, {'text': 2023, 'value': 2023}, {'text': 2024, 'value': 2024}],
+            record: {
+                "vds": [{'tzzmc': '2023级4班团支部', 'xm': '董晓天', 'dtsj': '20240508200905', 'sjhm': '15066271598', 'parent_version': 2024, 'version': '2024-6', 'versionname': '第6期', 'fulltzzmc': '团山东省委\n聊城大学团委\n计算机学院团委\n2023级4班团支部'}, {'tzzmc': '2023级4班团支部', 'xm': '董晓天', 'dtsj': '20240506162522', 'sjhm': '15066271598', 'parent_version': 2024, 'version': '2024-5', 'versionname': '第5期', 'fulltzzmc': '团山东省委\n聊城大学团委\n计算机学院团委\n2023级4班团支部'}, {'tzzmc': '2023级4班团支部', 'xm': '董晓天', 'dtsj': '20240429165028', 'sjhm': '15066271598', 'parent_version': 2024, 'version': '2024-4', 'versionname': '第4期', 'fulltzzmc': '团山东省委\n聊城大学团委\n计算机学院团委\n2023级4班团支部'}, {'tzzmc': '2023级4班团支部', 'xm': '董晓天', 'dtsj': '20240419200819', 'sjhm': '15066271598', 'parent_version': 2024, 'version': '2024-3', 'versionname': '第3期', 'fulltzzmc': '团山东省委\n聊城大学团委\n计算机学院团委\n2023级4班团支部'}, {'tzzmc': '2023级4班团支部', 'xm': '董晓天', 'dtsj': '20240326193730', 'sjhm': '15066271598', 'parent_version': 2024, 'version': '2024-2', 'versionname': '第2期', 'fulltzzmc': '团山东省委\n聊城大学团委\n计算机学院团委\n2023级4班团支部'}, {'tzzmc': '2023级4班团支部', 'xm': '董晓天', 'dtsj': '20240108164635', 'sjhm': '15066271598', 'parent_version': 2023, 'version': '2023-0108', 'versionname': '第1期', 'fulltzzmc': '团山东省委\n聊城大学团委\n计算机学院团委\n2023级4班团支部'}]
+            },
+        }
+    })</script>
