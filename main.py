@@ -6,6 +6,8 @@ import os
 import loguru
 import requests
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 OPENID_LIST = [
     i for i in os.getenv("QNDXX_OPENID_LIST").split()
@@ -79,8 +81,8 @@ def get_study_record(openid: str):
 
 def screen_shot(save_png_path: str, file_path: str = "./web/out.html"):
     option = webdriver.ChromeOptions()
-    # option.add_argument("--headless")
-    driver = webdriver.Chrome(options=option)
+    option.add_argument("--headless")
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
     driver.set_window_size(915, 1294)
     html_path = Path(file_path).absolute()
     driver.get(f"file://{html_path}")
